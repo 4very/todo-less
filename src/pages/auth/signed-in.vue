@@ -1,3 +1,3 @@
 <template>
-  <Starter />
+  <p>Signing in...</p>
 </template>
