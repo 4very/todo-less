@@ -6,9 +6,9 @@ export default {
     UserAuthForm,
   },
   methods: {
-    registerUser(form) {
-      $fetch('/api/auth/register', { method: 'post', body: { ...form } })
-      $auth.loginWith('local', { data: { ...form } })
+    loginUser(form) {
+      console.log(form)
+      this.$auth.loginWith('local', { body: { ...form } }).then(res => console.log(res))
     },
   },
 }
@@ -18,10 +18,11 @@ export default {
   <div class="flex w-screen h-screen justify-center">
     <div class="pt-10 flex flex-col w-1/3 place-self-center">
       <h1 class="text-lg pb-2 text-zinc-100 text-center">
-        Register
+        Login
       </h1>
 
-      <UserAuthForm button-text="Register" :submit-form="registerUser" has-name="true" />
+      <UserAuthForm button-text="Login" :submit-form="loginUser" has-name="true" />
     </div>
   </div>
 </template>
+

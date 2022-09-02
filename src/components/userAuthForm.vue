@@ -53,7 +53,7 @@ export default {
 
 <template>
   <form class="flex flex-col gap-5 text-zinc-100" @submit.prevent="submitFormWithCheck">
-    <div>
+    <div class="flex flex-col">
       Name
       <input
         v-model="v$.form.name.$model"
@@ -67,7 +67,7 @@ export default {
       </div>
     </div>
 
-    <div>
+    <div class="flex flex-col">
       Email
       <input
         v-model="v$.form.email.$model"
@@ -80,15 +80,13 @@ export default {
         </div>
       </div>
     </div>
-    <div>
+    <div class="flex flex-col">
       Password
       <input
         v-model="v$.form.password.$model"
         class="rounded form-input bg-zinc-600 "
         label="Password"
-        :type="showPassword ? 'text' : 'password'"
-        :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-        @click:append="showPassword = !showPassword"
+        type="password"
       >
       <div v-for="(error, index) of v$.form.password.$errors" :key="index" class="input-errors">
         <div class="error-msg text-rose-300 text-sm">

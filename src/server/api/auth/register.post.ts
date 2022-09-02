@@ -11,8 +11,8 @@ export default defineEventHandler(async (event) => {
 
   const users = JSON.parse(fs.readFileSync(usersFile).toString())
   if (email in users) {
-    setResponseStatus(400)
     return {
+      errorCode: 400,
       error: 'User already created!',
     }
   }
