@@ -7,8 +7,7 @@ export default {
   },
   methods: {
     loginUser(form) {
-      console.log(form)
-      this.$auth.loginWith('local', { body: { ...form } }).then(res => console.log(res))
+      this.$auth.loginWith('local', { body: { ...form } })
     },
   },
 }

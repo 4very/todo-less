@@ -5,7 +5,6 @@ export default defineEventHandler(async (event) => {
   const body = await useBody(event)
   const email = body.email
   const password = body.password
-  console.log(JSON.stringify(body))
 
   const users = JSON.parse(fs.readFileSync(usersFile).toString())
   if (!(email in users)) {
@@ -22,7 +21,6 @@ export default defineEventHandler(async (event) => {
     }
   }
 
-  console.log(email)
   return {
     token: users[email].token,
   }
