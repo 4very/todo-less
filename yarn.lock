@@ -2039,6 +2039,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vuelidate/core@npm:^2.0.0-alpha.44":
+  version: 2.0.0-alpha.44
+  resolution: "@vuelidate/core@npm:2.0.0-alpha.44"
+  dependencies:
+    vue-demi: ^0.13.4
+  checksum: 07437d2c62cbdd545d5edbbb9f8314fc50d31254dca250e40dd0dcdf41df0f03f38cb4e87345c859eb25c47508706087237e6444098bef3d42cdaa50e423db7b
+  languageName: node
+  linkType: hard
+
+"@vuelidate/validators@npm:^2.0.0-alpha.31":
+  version: 2.0.0-alpha.31
+  resolution: "@vuelidate/validators@npm:2.0.0-alpha.31"
+  dependencies:
+    vue-demi: ^0.13.4
+  checksum: 19026a4ce4e97e2cc926c054f953a8cfb5e23c541eaf75a6130c658592846ca9336debcff6a96d6da3c1cb9d9e9332432364295ddd6c5d0db3496ca25824822f
+  languageName: node
+  linkType: hard
+
 "@vueuse/core@npm:9.1.1":
   version: 9.1.1
   resolution: "@vueuse/core@npm:9.1.1"
@@ -8787,6 +8805,8 @@ __metadata:
     "@tailwindcss/line-clamp": 0.4.0
     "@tailwindcss/typography": 0.5.4
     "@unocss/nuxt": 0.45.13
+    "@vuelidate/core": ^2.0.0-alpha.44
+    "@vuelidate/validators": ^2.0.0-alpha.31
     "@vueuse/nuxt": 9.1.1
     eslint: 8.23.0
     eslint-config-prettier: 8.5.0
@@ -10223,7 +10243,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-demi@npm:*":
+"vue-demi@npm:*, vue-demi@npm:^0.13.4":
   version: 0.13.11
   resolution: "vue-demi@npm:0.13.11"
   peerDependencies:
