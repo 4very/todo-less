@@ -63,15 +63,28 @@ export default defineNuxtConfig({
   },
 
   auth: {
-    redirect: {
-      login: '/', // redirect user when not connected
-      callback: '/auth/signed-in',
-    },
     strategies: {
-      local: false,
-      auth0: {
-        domain: 'sommea.us.auth0.com',
-        client_id: 'wX7LhUAK99K4XYmOPym0PPjwJvEJ0qmj',
+      local: {
+        enabled: true,
+        name: 'local',
+        token: {
+          property: 'token',
+          global: true,
+          // required: true,
+          // type: 'Bearer'
+        },
+        user: {
+          property: 'user',
+          // autoFetch: true
+        },
+        endpoints: {
+          login: { url: '/api/auth/login', method: 'post', propertyName: 'token' },
+          logout: false,
+          user: {
+            url: '/api/auth/user',
+            method: 'post',
+          },
+        },
       },
     },
   },

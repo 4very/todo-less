@@ -13,7 +13,6 @@
     "allupdate": "yarn upgrade-interactive"
   },
   "dependencies": {
-    "@auth0/auth0-spa-js": "^1.22.3",
     "@headlessui/vue": "1.6.7",
     "@nuxtjs-alt/auth": "^2.0.4",
     "@nuxtjs-alt/axios": "^1.0.17",

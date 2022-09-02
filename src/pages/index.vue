@@ -1,13 +1,19 @@
 <script setup>
 function login() {
-  $auth.loginWith('auth0', { data: { client_id: 'wX7LhUAK99K4XYmOPym0PPjwJvEJ0qmj' } })
+  $fetch('/api/login', { method: 'POST', body: { username: 'username', password: 'password' } })
 }
 </script>
 
 <template>
   <div>
     hello
-    <a v-if="$auth.loggedIn" @click="$auth.logout()">Sign Off</a>
-    <a v-else @click="$auth.loginWith('auth0', { client_id: 'wX7LhUAK99K4XYmOPym0PPjwJvEJ0qmj' })">Sign In</a>
+    <a @click="$auth.logout()">Sign Off</a>
+    <a @click="$auth.loginWith('local', { data: {} })">Sign In</a>
+    <div v-if="$auth.loggedIn">
+      logged in!
+    </div>
+    <div>
+      {{ $auth.user?.data }}
+    </div>
   </div>
 </template>
