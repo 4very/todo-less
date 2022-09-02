@@ -82,7 +82,7 @@ export default defineNuxtConfig({
           logout: false,
           user: {
             url: '/api/auth/user',
-            method: 'post',
+            method: 'get',
           },
         },
       },

@@ -1,7 +1,5 @@
 <script setup>
-function login() {
-  $fetch('/api/login', { method: 'POST', body: { username: 'username', password: 'password' } })
-}
+
 </script>
 
 <template>
