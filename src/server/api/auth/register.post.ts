@@ -1,15 +1,11 @@
-import fs from 'fs'
-
-export const usersFile = './src/assets/users.json'
-export const dataFile = './src/assets/data.json'
-
 export default defineEventHandler(async (event) => {
   const body = await useBody(event)
   const email = body.email
   const password = body.password
   const name = body.name
 
-  const users = JSON.parse(fs.readFileSync(usersFile).toString())
+  const users = await $fetch('/api/users', { method: 'get', responseType: 'json' })
+
   if (email in users) {
     return {
       errorCode: 400,
@@ -25,13 +21,16 @@ export default defineEventHandler(async (event) => {
     token,
   }
 
-  const data = JSON.parse(fs.readFileSync(dataFile).toString())
+  const data = await $fetch('/api/data', { method: 'get', responseType: 'json' })
+
   data[token] = {
-    todos: [],
+    name,
+    todos: {},
+    index: 0,
   }
 
-  fs.writeFileSync(dataFile, JSON.stringify(data))
-  fs.writeFileSync(usersFile, JSON.stringify(users))
+  $fetch('/api/data', { method: 'post', body: { ...data } })
+  $fetch('/api/users', { method: 'post', body: { ...users } })
 
   return { token }
 })

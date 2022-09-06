@@ -1,14 +1,14 @@
 <script>
-import UserAuthForm from '@/components/UserAuthForm'
+import UserRegisterForm from '@/components/UserRegisterForm'
 
 export default {
   components: {
-    UserAuthForm,
+    UserRegisterForm,
   },
   methods: {
     registerUser(form) {
       $fetch('/api/auth/register', { method: 'post', body: { ...form } })
-      $auth.loginWith('local', { data: { ...form } })
+      $auth.loginWith('local', { body: { ...form } })
     },
   },
 }
@@ -21,7 +21,7 @@ export default {
         Register
       </h1>
 
-      <UserAuthForm button-text="Register" :submit-form="registerUser" has-name="true" />
+      <UserRegisterForm button-text="Register" :submit-form="registerUser" />
     </div>
   </div>
 </template>

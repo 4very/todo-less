@@ -1,9 +1,9 @@
 <script>
-import UserAuthForm from '@/components/UserAuthForm'
+import UserLoginForm from '@/components/UserLoginForm'
 
 export default {
   components: {
-    UserAuthForm,
+    UserLoginForm,
   },
   methods: {
     loginUser(form) {
@@ -20,7 +20,7 @@ export default {
         Login
       </h1>
 
-      <UserAuthForm button-text="Login" :submit-form="loginUser" has-name="true" />
+      <UserLoginForm button-text="Login" :submit-form="loginUser" />
     </div>
   </div>
 </template>

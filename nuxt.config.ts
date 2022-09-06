@@ -20,6 +20,9 @@ export default defineNuxtConfig({
   build: {
     transpile: ['@headlessui/vue'],
   },
+  plugins: [
+    { src: '~/plugins/vuelidate', ssr: true },
+  ],
   unocss: {
     uno: false,
     preflight: false,

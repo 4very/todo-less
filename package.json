@@ -26,7 +26,8 @@
     "@tailwindcss/typography": "0.5.4",
     "@vuelidate/core": "^2.0.0-alpha.44",
     "@vuelidate/validators": "^2.0.0-alpha.31",
-    "pinia": "2.0.21"
+    "pinia": "2.0.21",
+    "vee-validate": "^4.6.7"
   },
   "devDependencies": {
     "@antfu/eslint-config": "0.26.2",

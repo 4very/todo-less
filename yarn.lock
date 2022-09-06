@@ -8819,6 +8819,7 @@ __metadata:
     sass: 1.54.8
     sass-loader: 13.0.2
     typescript: 4.8.2
+    vee-validate: ^4.6.7
   languageName: unknown
   linkType: soft
 
@@ -10098,6 +10099,17 @@ __metadata:
   version: 1.1.2
   resolution: "vary@npm:1.1.2"
   checksum: ae0123222c6df65b437669d63dfa8c36cee20a504101b2fcd97b8bf76f91259c17f9f2b4d70a1e3c6bbcee7f51b28392833adb6b2770b23b01abec84e369660b
+  languageName: node
+  linkType: hard
+
+"vee-validate@npm:^4.6.7":
+  version: 4.6.7
+  resolution: "vee-validate@npm:4.6.7"
+  dependencies:
+    "@vue/devtools-api": ^6.1.4
+  peerDependencies:
+    vue: ^3.0.0
+  checksum: 4b9049af7e60e152526e6719045936308fbd3d95ed92b451d62f89dc0b00b1caa5657bdad25a95f4b7227d25f29708cbcdd00594702ace252cf90638fa628ed2
   languageName: node
   linkType: hard
 
