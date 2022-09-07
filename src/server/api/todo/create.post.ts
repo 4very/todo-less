@@ -14,5 +14,5 @@ export default defineEventHandler(async (event) => {
 
   $fetch('/api/data', { method: 'post', body: { ...data } })
 
-  return {}
+  return data[token]
 })

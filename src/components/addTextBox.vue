@@ -1,9 +1,8 @@
 <script setup>
 import { Field, useForm } from 'vee-validate'
+import { mainStore } from '~/store/main'
 
-const props = defineProps([
-  'token',
-])
+const main = mainStore()
 
 const initialValues = {
   todo: '',
@@ -11,38 +10,15 @@ const initialValues = {
 
 const { handleSubmit } = useForm({ initialValues })
 
-const onSubmit = handleSubmit((values) => {
-  // alert(JSON.stringify(values, null, 2))
-  $fetch('/api/todo/create', { method: 'post', body: { text: values.todo, token: props.token } })
-})
-
-// async function submitFormWithCheck() {
-//   // this.submitForm(this.v$.form.$model)
-//   console.log(this.v$)
-
-//   // $fetch('/api/todo/create', { method: 'post', body: { ...this.v$.form.$model } })
-//   // actually submit form
-// }
-
 const open = ref(false)
+
+const onSubmit = handleSubmit(async (values) => {
+  const newData = await $fetch('/api/todo/create', { method: 'post', body: { text: values.todo, token: main.token } })
+  main.$patch({ usrData: newData })
+  open.value = false
+  resetField()
+})
 </script>
-
-<!-- <script>
-export default {
-
-  validations() {
-    return {
-
-      todo: {
-        required,
-      },
-    }
-  },
-  methods: {
-
-  },
-}
-</script> -->
 
 <template>
   <div class="flex flex-row justify-center items-center gap-4">
@@ -51,7 +27,7 @@ export default {
         class="h-8 w-8"
       />
     </button>
-    <Form
+    <form
       class="flex flex-row gap-2" :class="{
         invisible:
           !open,
@@ -81,6 +57,6 @@ export default {
           class="h-8 w-8"
         />
       </button>
-    </Form>
+    </form>
   </div>
 </template>

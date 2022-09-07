@@ -1,15 +1,16 @@
-<script>
+<script setup>
+import { mainStore } from '../store/main'
 import UserLoginForm from '@/components/UserLoginForm'
 
-export default {
-  components: {
-    UserLoginForm,
-  },
-  methods: {
-    loginUser(form) {
-      this.$auth.loginWith('local', { body: { ...form } })
-    },
-  },
+const main = mainStore()
+
+async function loginUser(form) {
+  await this.$auth.loginWith('local', { body: { ...form } })
+  await this.$auth.fetchUser()
+  main.$patch({
+    usrData: this.$auth.user,
+    token: this.$auth.strategy.token.get(),
+  })
 }
 </script>
 
